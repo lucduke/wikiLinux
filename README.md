@@ -35,3 +35,8 @@
 ## Bitlocker
 
 [Lien vers l'article](./bitlocker.md)
+
+## La conversion des images HEIF
+
+[Lien vers l'article](./heif.md)
+
