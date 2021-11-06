@@ -52,6 +52,7 @@ yt-dlp -F <url>
 # Pour télécharger une vidéo dans un format particulier
 yt-dlp -f <format_code> <url>
 yt-dlp -f <format_code1>+bestaudio --merge-output-format mkv <url>
+yt-dlp -f "bv*[height<=1080]+ba" --merge-output-format mkv --output "%(title)s.%(ext)s" <url>
 ```
 
 
