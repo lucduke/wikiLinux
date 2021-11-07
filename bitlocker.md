@@ -1,4 +1,8 @@
-# Monter et lire une partition Bitlocker sous linux
+# Monter et lire une partition chiffrée Bitlocker sous linux
+
+
+
+Bitlocker est un système de chiffrement développé par Microsoft et qui permet de chiffrer une partition afin de protéger les données qui y sont stockées.
 
 
 
@@ -11,13 +15,13 @@ sudo apt update
 sudo apt install dislocker
 ```
 
-On créé 2 partitions
+On créé 2 dossiers pour nos futurs points de montage
 
 ```bash
 sudo mkdir -p /media/bitlocker
 sudo mkdir -p /media/bitlockermount
-# La 1ère permet de stocker une image de la partition décryptée
-# La seconde permet de la monter
+# Le 1ère permet de stocker une image de la partition décryptée
+# Le second permet de la monter
 ```
 
 
@@ -28,7 +32,7 @@ Dans mon cas, il s'agit d'une clef USB
 
 ```bash
 # Pour identifier la partition
-sudo lsblk
+sudo lsblk --output NAME,SIZE,MODEL,SERIAL,TYPE,FSTYPE,MOUNTPOINT,PARTLABEL,UUID
 
 # Avec l'option -u pour décrypter via le mot de passe
 sudo dislocker /dev/sdb1 -u -- /media/bitlocker
