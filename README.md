@@ -20,8 +20,12 @@
 ## Les processus
 [Lien vers l'article](./processus.md)
 
+## Background / Foreground
+
+[Lien vers l'article](./bgfg.md)
 
 ## Informations système
+
 [Lien vers l'article](./infosys.md)
 
 
@@ -32,8 +36,12 @@
 ## L'archivage TAR
 [Lien vers l'article](./tar.md)
 
+## La compression ZIP /RAR
+
+[Lien vers l'article](./compression.md)
 
 ## Bitlocker
+
 [Lien vers l'article](./bitlocker.md)
 
 

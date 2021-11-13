@@ -6,6 +6,12 @@ Bitlocker est un système de chiffrement développé par Microsoft et qui permet
 
 
 
+## Tutoriel vidéos
+
+[Lien vers la vidéo](https://youtu.be/qHcrz6HicNc)
+
+
+
 ## Prérequis
 
 On installe dislocker
