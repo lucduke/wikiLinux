@@ -42,11 +42,54 @@ free -m
 
 ## Les disques
 
+### Lister les périphériques block
+
+```shell
+lsblk
+```
+
+### Récupérer UUID des partitions
+
+```shell
+blkid
+```
+
+### Monter des systèmes de fichiers
+
+```shell
+# Monter tous les systèmes de fichiers déclarés dans /etc/fstab
+mount -a
+# Démonter tous les systèmes de fichiers déclarés dans /etc/fstab
+umount -a
+# Démonter un point de montage particulier (ex: /home/)
+umount <pointMontage>
+# Monter un système de fichier particulier dans un point de montage
+mount /dev/sdb1 /mnt/disk1
+```
+
+### Gérer les partitions sur un disque (ex: sdb)
+
+```shell
+fdisk /dev/sdb
+# Pour afficher la table de partition existante, on tape p
+# Pour créer une nouvelle table de partition GPT, on tape g
+# Pour créer une nouvelle table de partition DOS (MBR), on tape o
+# Pour créer une nouvelle partition, on tape n
+# Pour écrire la table de partition, on tape w
+
+# Pour écrire un système de fichier sur sa nouvelle partition
+mkfs.ext4 /dev/sdb1
+mkfs.exfat /dev/sdb1
+```
+
+### Connaitre l'espace sur les différents systèmes de fichiers
+
 ```bash
 # Pour l'affichage des systèmes de fichier
 df -h
-
 # Pour l'affichage de la taille d'un dossier et des sous-dossiers
 du -sh
+# Pour connaitre les dossiers qui prennent le plus de place (-x pour exclure les répertoires réseaux)
+ncdu / -x
 ```
 
