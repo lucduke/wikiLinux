@@ -28,8 +28,12 @@
 
 [Lien vers l'article](./infosys.md)
 
+## Les firmwares
+
+[Lien vers l'article](./firmware.md)
 
 ## Les alias
+
 [Lien vers l'article](./alias.md)
 
 

@@ -2,6 +2,30 @@
 
 
 
+## Vision synthétique
+
+```bash
+# Lister les différents composants
+sudo inxi -F
+sudo cpu-x #outils graphiques
+sudo lshw
+sudo lshw -short
+sudo dmidecode
+
+# Lister les périphériques PCI
+lspci
+lspci -v
+lspci -vvv
+
+# Lister les périphériques USB
+lsusb
+
+# Lister les périphériques SCSI
+lsscsi
+```
+
+
+
 ## La date
 
 ```bash
@@ -25,6 +49,10 @@ w
 ## Les informations CPU
 
 ```bash
+# Identifier le nombre de processeurs
+nproc
+# Information sur son CPU
+lscpu
 more /proc/cpuinfo
 ```
 
@@ -42,15 +70,19 @@ free -m
 
 ## Les disques
 
-### Lister les périphériques block
+### Récupérer des informations 
 
 ```shell
+# Informations sur les disques
+sudo hdparm -i /dev/sda
+
+# Informations SMART sur les disques
+sudo smartctl -a /dev/sda
+
+# Lister les périphériques block
 lsblk
-```
 
-### Récupérer UUID des partitions
-
-```shell
+# Récupérer UUID des partitions
 blkid
 ```
 
@@ -86,9 +118,9 @@ mkfs.exfat /dev/sdb1
 
 ```bash
 # Pour l'affichage des systèmes de fichier
-df -h
+df -hT
 # Pour l'affichage de la taille d'un dossier et des sous-dossiers
-du -sh
+du -hs
 # Pour connaitre les dossiers qui prennent le plus de place (-x pour exclure les répertoires réseaux)
 ncdu / -x
 ```

@@ -5,7 +5,12 @@
 ## Lister les interfaces réseaux
 
 ```bash
+# Lister les interfaces réseaux
 ip addr
+
+# Lister les paquets émis / reçus
+ip -s -h -a link
+
 # Pour afficher les routeurs utilisés
 ip route
 ```
@@ -26,6 +31,18 @@ ping -c 5 google.fr
 
 ```bash
 dig google.fr
+```
+
+
+
+## Explorer son réseau local
+
+```shell
+# Découvrir les PC du réseau local (via un ping)
+sudo nmap --dns-servers 192.168.1.1 -sn 192.168.1.*
+
+# Découvrir les caractéristiques d'un PC distant
+sudo nmap -Pn -A -O 192.168.1.101
 ```
 
 

@@ -36,12 +36,17 @@ touch <fichier>
 rm <fichier>
 # Pour avoir une confirmation
 rm -i <fichier>
+# Pour une suppression récursive
+rm -r <mon_repertoire>
 ```
 
 ### La copie
 
 ```bash
 cp <fichier_source> <fichier_cible>
+
+# Copie récursive et préservant les attributs du fichier
+cp -avr <ma_source> <ma_destination>
 ```
 
 ### Le déplacement
@@ -67,3 +72,27 @@ tail -n 7 <fichier>
 tail -f <fichier>
 ```
 
+
+
+## Les liens
+
+```shell
+Créer un lien symbolique
+ln -s <lien_symb>
+```
+
+
+
+## Les droits
+
+### Changer les droits en récursif
+
+```shell
+sudo chmod -R 777 <mon_repertoire>
+```
+
+### Changer owner d'un répertoire
+
+```shell
+sudo chown newuser:newgroup file_name
+```
