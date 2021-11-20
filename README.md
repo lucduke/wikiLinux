@@ -36,8 +36,12 @@
 
 [Lien vers l'article](./alias.md)
 
+## Les journaux
+
+[Lien vers l'article](./journal.md)
 
 ## L'archivage TAR
+
 [Lien vers l'article](./tar.md)
 
 ## La compression ZIP /RAR
@@ -63,3 +67,7 @@
 ## Utilisation de Nano
 
 [Lien vers l'article](./nano.md)
+
+Utilisation de Anacron
+
+[Lien vers l'article](./anacron.md)

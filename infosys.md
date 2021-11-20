@@ -77,6 +77,19 @@ free -m
 sudo hdparm -i /dev/sda
 
 # Informations SMART sur les disques
+## Pour vérifier si les infos SMART sont disponibles
+sudo smartctl --health --info /dev/sda
+--> On doit trouver les 2 lignes suivantes
+----> SMART support is: Available - device has SMART capability.
+----> SMART support is: Enabled
+## Pour afficher la durée approx des tests
+sudo smartctl --capabilities /dev/sda
+## Pour lancer le test rapide
+sudo smartctl --test short /dev/sda
+## Pour lancer le test long
+sudo smartctl --test long /dev/sda
+## Pour affichier les résultats du test
+sudo smartctl --log selftest /dev/sda
 sudo smartctl -a /dev/sda
 
 # Lister les périphériques block
