@@ -78,3 +78,13 @@ Et on ajoute cette ligne à la fin
 /usr/sbin/anacron -s -t ${HOME}/.anacron/etc/anacrontab -S ${HOME}/.anacron/spool
 ```
 
+
+
+## Suivre l'execution des jobs
+
+Pour consulter la dernière execution d'un job
+
+```shell
+cat /var/spool/anacron/<id_job>
+```
+
