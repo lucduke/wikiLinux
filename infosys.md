@@ -138,3 +138,9 @@ du -hs
 ncdu / -x
 ```
 
+### Réparer un système de fichier
+
+```bash
+sudo fsck.ext4 -f /dev/sda1
+```
+
