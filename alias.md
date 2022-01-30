@@ -21,7 +21,7 @@ alias
 ## Pour perenniser les alias
 ```bash
 # On éditer le fichier .bashrc
-nano ~.bashrc
+nano ~/.bashrc
 # On ajoute ses alias à la fin du fichier
 # On enregistre
 ```
