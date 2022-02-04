@@ -1,4 +1,4 @@
-# La conversion des fichiers HEIF
+# La conversion des fichiers HEIC
 
 
 
