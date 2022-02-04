@@ -53,7 +53,7 @@
 [Lien vers l'article](./bitlocker.md)
 
 
-## La conversion des images HEIF
+## La conversion des images HEIC
 [Lien vers l'article](./heif.md)
 
 
