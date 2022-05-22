@@ -71,3 +71,7 @@
 ## Utilisation de Anacron
 
 [Lien vers l'article](./anacron.md)
+
+## Création d'un partage Samba
+
+[Lien vers l'article](./partages_samba.md)
