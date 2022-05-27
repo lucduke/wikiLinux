@@ -43,7 +43,13 @@ sudo docker rm <ID>
 sudo docker rm <NAME>
 
 # Afficher les logs d'un conteneur
-docker logs <ID> -f --tail 50
-docker logs <NAME> -f --tail 50
+sudo docker logs <ID> -f --tail 50
+sudo docker logs <NAME> -f --tail 50
+
+# Afficher l'espace disque utilisé par les conteneurs / images
+sudo docker system df
+
+# Supprimer les conteneurs / reseaux / images / volumes non utilisés
+sudo docker system prune -a
 ```
 
