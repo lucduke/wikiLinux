@@ -96,3 +96,19 @@ sudo chmod -R 777 <mon_repertoire>
 ```shell
 sudo chown newuser:newgroup file_name
 ```
+
+
+
+## NCDU
+
+NCDU est un petit utilitaire permettant d’analyser le système de fichier et de naviguer à l’intérieur.
+L’analyse ce fait dans l’arborescence dans laquelle vous vous trouvez <u>ou</u> celle que vous lui indiquez.
+
+```bash
+# Installation
+sudo apt install ncdu -y
+
+# Utilisation
+ncdu /path
+```
+
