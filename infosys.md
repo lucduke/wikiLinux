@@ -64,6 +64,9 @@ more /proc/cpuinfo
 more /proc/meminfo
 # La consommation mémoire
 free -m
+
+# Vider le swap
+swapoff -a && swapon -a
 ```
 
 
