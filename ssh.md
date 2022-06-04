@@ -14,7 +14,7 @@ ssh-keygen -t rsa -b 4096 -C "NomUser"
 ssh-copy-id -i "~/.ssh/id_rsa.pub" user@host.local
 
 # Vérification de la connexion via la clef
-ssh user@host.loccal
+ssh user@host.local
 
 # Vérifications
 # Il faut que le repertoire home sur le remote/local serveur ne soit modifiable que par son proprietaire

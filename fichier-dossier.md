@@ -109,6 +109,13 @@ L’analyse ce fait dans l’arborescence dans laquelle vous vous trouvez <u>ou<
 sudo apt install ncdu -y
 
 # Utilisation
-ncdu /path
+sudo ncdu /path
+
+# Pour rechercher sur tous le filesystem local (i.e. sans les points de montage)
+sudo ncdu -x /
+
+# Commandes
+# i --> information sur le fichier
+# d --> pour supprimer
 ```
 
