@@ -72,6 +72,10 @@
 
 [Lien vers l'article](./anacron.md)
 
+## Utilisation de Ripgrep
+
+[Lien vers l'article](./ripgrep.md)
+
 ## Création d'un partage Samba
 
 [Lien vers l'article](./partages_samba.md)
