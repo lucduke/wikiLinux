@@ -32,6 +32,10 @@
 
 [Lien vers l'article](./firmware.md)
 
+## La gestion des utilisateurs
+
+[Lien vers l'article](./user.md)
+
 ## Les alias
 
 [Lien vers l'article](./alias.md)
