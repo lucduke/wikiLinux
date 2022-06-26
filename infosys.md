@@ -134,9 +134,9 @@ mkfs.exfat /dev/sdb1
 
 ```bash
 # Pour l'affichage des systèmes de fichier
-df -hT
+df -hT -x tmpfs
 # Pour l'affichage de la taille d'un dossier et des sous-dossiers
-du -hs
+du -hsc
 # Pour connaitre les dossiers qui prennent le plus de place (-x pour exclure les répertoires réseaux)
 ncdu / -x
 ```
