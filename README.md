@@ -91,3 +91,7 @@
 ## Utilisation de SSHS
 
 [Lien vers l'article](./sshs.md)
+
+## Utilisation de eyeD3
+
+[Lien vers l'article](./eyed3.md)
