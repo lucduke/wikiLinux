@@ -9,7 +9,7 @@ Source : https://github.com/quantumsheep/sshs
 ## Téléchargement du binaire
 
 ````shell
-wget https://github.com/quantumsheep/sshs/releases/download/3.2.0/sshs-linux-amd64
+wget https://github.com/quantumsheep/sshs/releases/download/3.3.0/sshs-linux-amd64
 ````
 
 
@@ -17,8 +17,8 @@ wget https://github.com/quantumsheep/sshs/releases/download/3.2.0/sshs-linux-amd
 ## Installation du binaire
 
 ```shell
-sudo cp sshs-linux-amd64 /usr/bin/sshs
-sudo chmod +x /usr/bin/sshs
+sudo cp sshs-linux-amd64 /usr/local/bin/sshs
+sudo chmod +x /usr/local/bin/sshs
 ```
 
 

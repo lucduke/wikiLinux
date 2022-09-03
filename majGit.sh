@@ -9,16 +9,15 @@
 
 # VARIABLES
 
-echo "----------------------------------------------------------------"
+echo "---------------"
 echo "Debut du script"
-echo "----------------------------------------------------------------"
-
+echo "---------------"
 # MAJ  Github
-echo "MAJ Repo wikiLinux"
+echo -e "\nMAJ Repo wikiLinux"
 git add .
 git commit -m "Update"
 git push origin main
 
-echo "----------------------------------------------------------------"
+echo -e "\n-------------"
 echo "Fin du script"
-echo "----------------------------------------------------------------"
+echo "-------------"
