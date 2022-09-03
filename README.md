@@ -95,3 +95,7 @@
 ## Utilisation de eyeD3
 
 [Lien vers l'article](./eyed3.md)
+
+## Utilisation de gPhoto2
+
+[Lien vers l'article](./gphoto2.md)
