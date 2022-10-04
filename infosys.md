@@ -100,11 +100,14 @@ lsblk
 
 # Récupérer UUID des partitions
 blkid
+lsblk -fe7
 ```
 
 ### Monter des systèmes de fichiers
 
 ```shell
+# Afficher tous les points de montage
+mount
 # Monter tous les systèmes de fichiers déclarés dans /etc/fstab
 mount -a
 # Démonter tous les systèmes de fichiers déclarés dans /etc/fstab
@@ -114,6 +117,33 @@ umount <pointMontage>
 # Monter un système de fichier particulier dans un point de montage
 mount /dev/sdb1 /mnt/disk1
 ```
+
+### FSTAB
+#### Structure
+
+```text
+<filesystem><mount point><filesystem types><mount options><dump><passno>
+```
+
+#### Options
+```text
+defaults : rw,suid,dev,exec,auto,nouser,async
+rw : read-write
+ro : read-only
+exec : Permit execution of binaries
+noexec : Do not permit direct execution of any binaries
+auto : Can be mounted with the -a option
+no auto : Can only be mounted explicitly
+nofail : Do not report errors for this device if it does not exist
+discard : Spécifique SSD (activation du trim, amélioration durée/perf)
+sync/async : i/o réalisé en synchrone ou asynchrone
+noatime/relatime : mettre à jour ou pas l'accès à l'inode
+user/nouser : les users ou seul root peuvent monter le FS
+_netdev : device accessible par réseau
+uid= / gid= : spécification des users si hors linux 
+```
+
+
 
 ### Gérer les partitions sur un disque (ex: sdb)
 
