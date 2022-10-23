@@ -76,6 +76,9 @@ swapoff -a && swapon -a
 ### Récupérer des informations 
 
 ```shell
+# Lister les disques
+sudo fdisk -l
+
 # Informations sur les disques
 sudo hdparm -i /dev/sda
 
@@ -143,12 +146,25 @@ _netdev : device accessible par réseau
 uid= / gid= : spécification des users si hors linux 
 ```
 
+#### Consulter
+
+```bash
+cat /etc/fstab
+
+# Pour voir tous les filesystem montés
+cat /etc/mtab
+```
+
 
 
 ### Gérer les partitions sur un disque (ex: sdb)
 
 ```shell
+# Lister les disques
+sudo fdisk -l
+
 fdisk /dev/sdb
+# Pour afficher l'aide, on tape m
 # Pour afficher la table de partition existante, on tape p
 # Pour créer une nouvelle table de partition GPT, on tape g
 # Pour créer une nouvelle table de partition DOS (MBR), on tape o
@@ -156,14 +172,19 @@ fdisk /dev/sdb
 # Pour écrire la table de partition, on tape w
 
 # Pour écrire un système de fichier sur sa nouvelle partition
-mkfs.ext4 /dev/sdb1
-mkfs.exfat /dev/sdb1
+sudo mkfs.ext4 /dev/sdb1
+sudo mkfs.exfat /dev/sdb1
+
+# NB
+partition primaire = partition dans le MBR du disque (découverte au boot)
+partition étendue = fractionnement d'une partition primaire (conteneur)
 ```
 
 ### Connaitre l'espace sur les différents systèmes de fichiers
 
 ```bash
 # Pour l'affichage des systèmes de fichier
+findmnt
 df -hT -x tmpfs
 # Pour l'affichage de la taille d'un dossier et des sous-dossiers
 du -hsc
@@ -175,5 +196,21 @@ ncdu / -x
 
 ```bash
 sudo fsck.ext4 -f /dev/sda1
+```
+
+### La commande DD
+
+```bash
+# Copier un disque sur un autre
+sudo dd if=/dev/sda of=/dev/sdb status=progress
+
+# Copier un disque dans un fichier image
+sudo dd if=/dev/sda of=mybackup.img status=progress
+
+# Effacer le contenu d'un disque
+sudo dd if=/dev/zero of=/dev/sda status=progress
+
+# Restaurer un disque depuis un fichier image
+sudo dd if=mybackup.img of=/dev/sda status=progress
 ```
 
