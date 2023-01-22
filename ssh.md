@@ -50,20 +50,64 @@ ssh myUser@myHost.local
 ```
 
 
+## Gérer son serveur SSH
+
+```shell
+# Connaitre le statut du serveur SSH
+sudo systemctl status sshd
+
+# Arrêter le serveur SSH
+sudo systemctl stop sshd
+
+# Désactiver le serveur SSH
+sudo systemctl disable sshd
+
+# Activer le serveur SSH
+sudo systemctl enable sshd
+
+# Démarrer le serveur SSH
+sudo systemctl start sshd
+
+# Redémarrer le serveur SSH
+sudo systemctl restart sshd
+```
+
+
+## Fichier de configuration du serveur SSH
+
+Le fichier est enregistrer ici : /etc/ssh/ssh_config
+
+```txt
+# Pour empêcher la connexion du user root au serveur SSH (attention a bien avoir créer un autre utilisateur ayant accès au serveur ssh)
+PermitRootLogin no
+
+# Pour empêcher la connexion via mot de passe au serveur SSH (attention a bien avoir paramétrer un user pouvoir se connecter via un certificat)
+PasswordAuthentication no
+```
+
+Pour que les modifications soient effectives, il faut ensuite redémarrer le serveur SSH
+
 
 ## Copie locale vers serveur remote
 
-scp [-r récursif] [-p Conserve les dates de modification, d'accès et les permissions des fichiers originaux] [-P Spécifie un port de connexion à la machine distante] [<local_path>] [[user@destination_host]:<file2>]
+```shell
+scp [-r récursif] [-p Conserve les dates de modification, d\'accès et les permissions des fichiers originaux] [-P Spécifie un port de connexion à la machine distante] [<local_path>] [[user@destination_host]:<file2>]
+```
+
+
 ```shell
 scp -rpP 7256 /drives/i/temp/subsonic/* user@remoteHost.com:/var/subsonic/musique/Incoming
 ```
 
 
-
 ## Copie serveur remote vers local
 
-scp [-r récursif] [-p Conserve les dates de modification, d'accès et les permissions des fichiers originaux] [-P Spécifie un port de connexion à la machine distante] [[user@destination_host]:<file2>] [<local_path>]
-```                      shell
+```shell
+scp [-r récursif] [-p Conserve les dates de modification, d\'accès et les permissions des fichiers originaux] [-P Spécifie un port de connexion à la machine distante] [[user@destination_host]:<file2>] [<local_path>]
+```
+
+
+```shell
 # ex serveur vers local
 scp user@192.168.10.131:/var/www/Fichier2 /home/user/data/
 ```

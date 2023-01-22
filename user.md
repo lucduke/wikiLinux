@@ -3,7 +3,6 @@
 Utilisation de la commande usermod
 
 
-
 ## Utilisation
 
 ```shell
@@ -26,4 +25,12 @@ usermod --shell INTERPRÉTEUR
 
 # Pour définir un nouveau login
 usermod --login IDENTIFIANT
+```
+
+## Autres
+
+Pour lister les utilisateurs enregistrés sur le système
+
+```shell
+cat /etc/passwd
 ```
