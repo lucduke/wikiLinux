@@ -47,10 +47,10 @@ On saisit le contenu suivant dans le nouveau fichier
 /srv/nfs/media 192.168.1.0/255.255.255.0(rw,sync,all_squash,anonuid=65534,anongid=65534,no_subtree_check)
 ```
 
-Commentaires
-all_squash : force le _mapping_ de tous les utilisateurs vers l’utilisateur anonyme
-anonuid : indique au serveur NFS l’uid de l’utilisateur anonyme
-anongid : indique au serveur NFS le gid de l’utilisateur anonyme
+<u>Commentaires</u>
+- all_squash : force le _mapping_ de tous les utilisateurs vers l’utilisateur anonyme
+- anonuid : indique au serveur NFS l’uid de l’utilisateur anonyme
+- anongid : indique au serveur NFS le gid de l’utilisateur anonyme
 
 On redémarre le serveur
 
