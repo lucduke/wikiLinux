@@ -14,6 +14,7 @@ echo "Debut du script"
 echo "---------------"
 # MAJ  Github
 echo -e "\nMAJ Repo wikiLinux"
+git pull
 git add .
 git commit -m "Update"
 git push origin main
