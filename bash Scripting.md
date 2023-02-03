@@ -27,3 +27,28 @@ Pour afficher l'ensemble des variables système
 ```bash
 env
 ```
+
+# Les calculs
+
+Pour additionner 
+```shell
+expr 10 + 15
+```
+
+Pour soustraire
+```shell
+expr 10 - 15
+```
+
+Pour diviser
+```shell
+expr 10 / 15
+```
+
+Pour multiplier
+```shell
+expr 10 \* 15
+```
+
+# Les conditions (si)
+
