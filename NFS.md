@@ -21,7 +21,7 @@ sudo chmod -R 777 /srv/nfs/media
 ## Installation du serveur NFS
 
 ```bash
-sudo apt install nfs-kernel-server
+sudo apt install nfs-kernel-server -y
 ```
 
 On vérifie que le serveur est actif
@@ -62,14 +62,15 @@ sudo systemctl restart nfs-kernel-server
 ## Installation du client NFS
 
 ```bash
-sudo apt install nfs-common
+sudo apt install nfs-common -y
 ```
 
 On interroge le serveur NFS pour voir les répertoires partagés
 
 ```bash
 # Remplacer avec l'IP de votre serveur NFS
-showmount --exports 192.168.1.109
+# Pour connaitre l'IP, ip addr
+sudo showmount --exports 192.168.1.109
 ```
 
 On créé les répertoires de montage sur le PC client
