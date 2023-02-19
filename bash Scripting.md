@@ -229,3 +229,67 @@ Dans cet exemple, la boucle `while` lit chaque ligne du fichier `fichier.txt` et
 ## Conclusion
 
 En résumé, les boucles `while` sont un outil utile en Bash pour répéter un bloc de code tant qu'une condition spécifiée est vraie. Les boucles `while` sont souvent utilisées pour parcourir des fichiers et des dossiers, ainsi que pour lire des entrées utilisateur.
+
+
+# Les boucles for
+
+## Introduction
+
+Les boucles `for` sont un élément essentiel de la programmation en bash. Elles sont utilisées pour parcourir des listes, des tableaux ou des séquences de nombres. Dans ce tutoriel, nous allons apprendre à utiliser les boucles `for` en bash.
+
+## Syntaxe des boucles for
+
+La syntaxe des boucles `for` en bash est la suivante :
+
+```bash
+for variable in liste
+do
+	instruction(s)
+done
+```
+
+La variable est une variable de boucle qui est initialisée à chaque itération de la boucle avec la valeur courante de la liste. La liste peut être une liste de valeurs séparées par des espaces, un tableau ou une séquence de nombres.
+
+## Boucle for avec une liste de valeurs
+
+Supposons que nous voulions afficher les noms des jours de la semaine. Nous pouvons utiliser une boucle `for` pour parcourir une liste de valeurs.
+
+```bash
+for day in lundi mardi mercredi jeudi vendredi samedi dimanche
+do
+	echo $day
+done
+```
+
+Dans cet exemple, nous avons utilisé la variable "day" pour stocker chaque jour de la semaine à chaque itération de la boucle. L'instruction "echo $day" affiche le nom de chaque jour sur la console.
+
+## Boucle for avec un tableau
+
+Supposons que nous avons un tableau de noms d'utilisateurs et que nous voulons afficher chaque nom d'utilisateur. Nous pouvons utiliser une boucle `for` pour parcourir le tableau.
+
+```bash
+users=("John" "Jane" "James" "Julia")
+for user in ${users[@]}
+do
+	echo $user
+done
+```
+
+Dans cet exemple, nous avons créé un tableau "users" contenant les noms d'utilisateurs. La variable "user" est utilisée pour stocker chaque nom d'utilisateur à chaque itération de la boucle. L'instruction "echo $user" affiche chaque nom d'utilisateur sur la console.
+
+## Boucle for avec une séquence de nombres
+
+Supposons que nous voulions afficher les nombres de 1 à 10. Nous pouvons utiliser une boucle `for` pour parcourir une séquence de nombres.
+
+```bash
+for i in {1..10}
+do
+	echo $i
+done
+```
+
+Dans cet exemple, nous avons utilisé la variable "i" pour stocker chaque nombre de la séquence de nombres. L'instruction "echo $i" affiche chaque nombre sur la console.
+
+## Conclusion
+
+Nous avons appris à utiliser les boucles `for` en bash. Nous avons vu comment utiliser les boucles `for` avec une liste de valeurs, un tableau et une séquence de nombres.

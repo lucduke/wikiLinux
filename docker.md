@@ -51,5 +51,10 @@ sudo docker system df
 
 # Supprimer les conteneurs / reseaux / images / volumes non utilisés
 sudo docker system prune -a
+
+# Ou de façon unitaire
+sudo docker network prune
+sudo docker image prune
+sudo docker volume prune
 ```
 
