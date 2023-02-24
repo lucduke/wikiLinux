@@ -34,3 +34,9 @@ Pour lister les utilisateurs enregistrés sur le système
 ```shell
 cat /etc/passwd
 ```
+
+Pour se connecter en root
+
+``` bash
+sudo -i
+```

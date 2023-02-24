@@ -293,3 +293,205 @@ Dans cet exemple, nous avons utilisé la variable "i" pour stocker chaque nombre
 ## Conclusion
 
 Nous avons appris à utiliser les boucles `for` en bash. Nous avons vu comment utiliser les boucles `for` avec une liste de valeurs, un tableau et une séquence de nombres.
+
+# Les flux de données
+
+Dans Bash, les flux de données sont des flux de texte qui peuvent être transmis entre différents programmes en utilisant des canaux ou des redirections. Les flux de données peuvent être utilisés pour transmettre des données entre des programmes en temps réel, ou pour stocker des données dans des fichiers ou d'autres sources.
+
+Il existe trois types de flux de données en Bash : l'entrée standard (stdin), la sortie standard (stdout) et la sortie d'erreur standard (stderr).
+
+- L'entrée standard (stdin) : Il s'agit du flux de données d'entrée qui reçoit les données à partir d'un périphérique d'entrée ou d'un autre programme.
+- La sortie standard (stdout) : Il s'agit du flux de données de sortie qui envoie les données à un périphérique de sortie ou à un autre programme.
+- La sortie d'erreur standard (stderr) : Il s'agit du flux de données de sortie d'erreur qui envoie les erreurs et les messages d'erreur à un périphérique de sortie ou à un autre programme.  
+
+Voici comment gérer les flux de données en Bash :
+
+## Redirection de la sortie standard (stdout)
+
+La redirection de la sortie standard (stdout) permet de diriger la sortie d'un programme vers un fichier plutôt que de l'afficher sur l'écran. Pour rediriger la sortie standard, utilisez le symbole de redirection " > " suivi du nom du fichier :
+
+```bash
+commande > fichier.txt
+```
+
+Cela enregistrera la sortie de la commande dans le fichier "fichier.txt".
+
+Pour rediriger stdout vers /dev/null (et n'obtenir que les erreurs)
+
+```bash
+commande > /dev/null
+```
+
+
+## Redirection de l'entrée standard (stdin)
+
+La redirection de l'entrée standard (stdin) permet de fournir des données à un programme à partir d'un fichier plutôt que de l'entrée utilisateur standard. Pour rediriger l'entrée standard, utilisez le symbole de redirection " < " suivi du nom du fichier :
+
+```bash
+commande < fichier.txt
+```
+
+Cela fournira l'entrée du programme à partir du fichier "fichier.txt".
+
+## Redirection de la sortie d'erreur standard (stderr)
+
+La redirection de la sortie d'erreur standard (stderr) permet de rediriger les erreurs et les messages d'erreur d'un programme vers un fichier plutôt que de les afficher sur l'écran. Pour rediriger la sortie d'erreur standard, utilisez le symbole de redirection " 2> " suivi du nom du fichier :
+
+``` bash
+commande 2> erreur.txt
+```
+
+Cela enregistrera les erreurs et les messages d'erreur de la commande dans le fichier "erreur.txt".
+
+Si on redirige stderr vers /dev/null, on ne conserve que les bons résultats
+
+``` bash
+commande 2> /dev/null
+```
+
+## Redirection de la sortie standard et d'erreur standard
+
+Il est également possible de rediriger à la fois la sortie standard et la sortie d'erreur standard vers des fichiers différents. Pour rediriger à la fois la sortie standard et la sortie d'erreur standard, utilisez le symbole de redirection " &> " suivi du nom du fichier :
+
+``` bash
+commande &> sortie-erreur.txt
+```
+
+Cela enregistrera à la fois la sortie standard et la sortie d'erreur standard de la commande dans le fichier "sortie-erreur.txt".
+
+Pour rediriger la sortie standard dans un fichier et la sortie erreur dans un autre
+
+``` bash
+commande 1>sortie-standard.txt 2>sortie-erreur.txt
+```
+
+## Les canaux (pipes)
+
+Les canaux (pipes) permettent de transmettre des données en temps réel entre deux programmes. Pour utiliser un canal, utilisez le symbole de tuyau " | " pour connecter deux programmes
+
+# Les fonctions
+
+Les fonctions sont des blocs de code réutilisables qui peuvent être appelés plusieurs fois dans un script. Les fonctions peuvent prendre des paramètres en entrée, effectuer des calculs ou des opérations, et renvoyer une valeur en sortie.
+
+## Comment définir une fonction en Bash
+
+``` bash
+nom_de_fonction () {
+	instructions
+}
+```
+
+Le nom de la fonction peut être choisi librement, mais il doit commencer par une lettre ou un soulignement. Les instructions à l'intérieur de la fonction doivent être placées entre les accolades.
+
+Voici un exemple de fonction simple qui affiche "Hello World!" :
+
+``` bash
+hello_world () {
+   echo "Hello World!"
+}
+```
+
+Pour appeler cette fonction, il suffit d'écrire son nom suivi de parenthèses :
+
+``` bash
+hello_world
+```
+
+Cela affichera "Hello World!" sur l'écran.
+
+Les fonctions peuvent également prendre des paramètres en entrée. Les paramètres sont des valeurs que la fonction utilise pour effectuer ses calculs ou ses opérations. Les paramètres sont référencés à l'aide de variables spéciales dans la fonction.
+
+Voici un exemple de fonction qui prend un paramètre en entrée et l'affiche sur l'écran :
+
+``` bash
+afficher_parametre () {
+   echo "Le paramètre est : $1"
+}
+```
+
+Dans cette fonction, "$1" fait référence au premier paramètre. Pour appeler cette fonction avec le paramètre "Bonjour", il suffit d'écrire :
+
+``` bash
+afficher_parametre Bonjour
+```
+
+Cela affichera "Le paramètre est : Bonjour" sur l'écran.
+
+Les fonctions peuvent également renvoyer une valeur en sortie. Pour renvoyer une valeur, utilisez la commande "return" suivie de la valeur à renvoyer.
+
+Voici un exemple de fonction qui calcule la somme de deux nombres et renvoie le résultat :
+
+``` bash
+somme () {
+   local resultat=$(( $1 + $2 ))
+   return $resultat
+}
+```
+
+Dans cette fonction, "$1" et "$2" font référence aux deux premiers paramètres. La commande "local" est utilisée pour créer une variable locale qui n'est visible que dans la fonction. La valeur de la somme est stockée dans la variable "resultat", puis renvoyée à l'aide de la commande "return".
+
+Pour appeler cette fonction et stocker la valeur renvoyée dans une variable, utilisez la commande suivante :
+
+``` bash
+somme 5 10
+resultat=$?
+
+echo "La somme est : $resultat"
+```
+
+La première commande appelle la fonction "somme" avec les paramètres 5 et 10. La valeur renvoyée est stockée dans la variable spéciale "$?". On utilise ensuite la variable "resultat" pour afficher la somme
+
+## Conclusion
+
+Les fonctions en Bash sont un outil puissant qui peut aider à rendre les scripts plus modulaires et plus facilement compréhensibles. Avec les fonctions, vous pouvez encapsuler des blocs de code complexes, les réutiliser plusieurs fois et les modifier facilement sans avoir à changer tout le script.
+
+# Créer un menu avec Select
+
+## Introduction
+
+Le constructeur de contrôle de flux "select" permet de créer un menu interactif dans un script Bash. Avec "select", l'utilisateur peut sélectionner une option dans une liste prédéfinie à l'aide de chiffres ou de lettres, et le script effectuera une action en fonction de l'option sélectionnée.
+
+## Syntaxe
+
+Voici la syntaxe de base de "select" :
+
+``` bash
+select variable in option1 option2 option3
+do
+   case $variable in
+      option1) instructions ;;
+      option2) instructions ;;
+      option3) instructions ;;
+      *) echo "Option invalide. Veuillez réessayer." ;;
+   esac
+done
+```
+
+Explication de la syntaxe :
+
+- "variable" est le nom de la variable qui contiendra l'option sélectionnée par l'utilisateur.
+- "option1", "option2", "option3" sont les options disponibles dans le menu.
+- "case" est utilisé pour vérifier quelle option a été sélectionnée et exécuter les instructions correspondantes.
+- "esac" marque la fin de la clause "case".
+- "\*)" est utilisé pour traiter toutes les options invalides qui ne sont pas prises en compte dans le cas.
+
+Voici un exemple de menu interactif simple :
+
+``` bash
+select fruit in Pommes Bananes Oranges Quitter
+do
+   case $fruit in
+      Pommes) echo "Vous avez choisi Pommes." ;;
+      Bananes) echo "Vous avez choisi Bananes." ;;
+      Oranges) echo "Vous avez choisi Oranges." ;;
+      Quitter) echo "Au revoir !" ; break ;;
+      *) echo "Option invalide. Veuillez réessayer." ;;
+   esac
+done
+```
+
+Dans cet exemple, l'utilisateur peut sélectionner l'une des options "Pommes", "Bananes", "Oranges" ou "Quitter". Si l'utilisateur choisit "Quitter", le script affiche "Au revoir !" et quitte la boucle "select". Si l'utilisateur choisit une option invalide, le script affiche "Option invalide. Veuillez réessayer.".
+
+## Conclusion
+
+"select" est un outil utile pour créer des menus interactifs dans les scripts Bash. Il permet aux utilisateurs de sélectionner des options à partir d'une liste prédéfinie et simplifie l'interaction avec le script.
