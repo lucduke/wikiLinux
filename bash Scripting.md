@@ -94,6 +94,16 @@ then
 fi
 ```
 
+Pour tester la présence d'un argument en entrée de programme
+
+``` bash
+if [ $# -ne 1 ]
+then
+	echo "Aucun argument n'a été saisi"
+	exit 1
+fi
+```
+
 Pour plus d'info
 
 ```bash
@@ -104,7 +114,7 @@ man test
 Pour tester la présence d'un programme
 
 ```bash
-if command -v $programme
+if command -v $programme > /dev/null 2>&1
 then
 fi
 ```
