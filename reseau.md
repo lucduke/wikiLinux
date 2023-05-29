@@ -59,3 +59,35 @@ curl -o <fichier_output> <url>
 wget -r <url>
 ```
 
+## Configurer ses serveurs DNS sous debian 11
+Voici les étapes pour configurer l'adresse du serveur DNS sous Debian 11 en utilisant systemd :
+
+1- Ouvrez un terminal sur votre système Debian 11.
+
+2- Connectez-vous en tant qu'utilisateur root ou utilisez la commande sudo pour exécuter les commandes en tant qu'administrateur.
+
+3- Utilisez la commande suivante pour ouvrir le fichier de configuration systemd-resolved :
+
+```bash
+sudo nano /etc/systemd/resolved.conf
+```
+
+Dans le fichier resolved.conf, recherchez la ligne commençant par DNS=. Si vous ne voyez pas cette ligne, vous pouvez l'ajouter à la fin du fichier.
+
+Sur la ligne DNS=, spécifiez les adresses IP de vos serveurs DNS séparées par des espaces ou des virgules. Par exemple, pour utiliser les serveurs DNS de Google, vous pouvez ajouter :
+
+```makefile
+DNS=8.8.8.8 8.8.4.4
+```
+
+Si vous le souhaitez, vous pouvez également ajouter la ligne FallbackDNS= et spécifier des adresses IP de serveurs DNS de secours, qui seront utilisées si les serveurs DNS principaux échouent.
+
+Enregistrez les modifications et fermez l'éditeur de texte en utilisant Nano (Ctrl + O pour enregistrer, puis Ctrl + X pour fermer).
+
+Redémarrez le service systemd-resolved pour appliquer les modifications :
+
+```bash
+sudo systemctl restart systemd-resolved.service
+```
+
+Après avoir suivi ces étapes, systemd utilisera les serveurs DNS que vous avez configurés pour résoudre les noms de domaine.
