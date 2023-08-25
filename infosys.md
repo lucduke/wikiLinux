@@ -172,7 +172,7 @@ fdisk /dev/sdb
 # Pour écrire la table de partition, on tape w
 
 # Pour écrire un système de fichier sur sa nouvelle partition
-sudo mkfs.ext4 /dev/sdb1
+sudo mkfs.ext4 -m 1 /dev/sdb1
 sudo mkfs.exfat /dev/sdb1
 
 # NB

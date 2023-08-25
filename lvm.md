@@ -88,7 +88,7 @@ sudo lvs
 2.  Formatez le LV en utilisant la commande suivante :
 
 ``` bash
-sudo mkfs.ext4 /dev/my_vg/my_lv
+sudo mkfs.ext4 -m 1 /dev/my_vg/my_lv
 ```
 
 Notez que `/dev/my_vg/my_lv` est le chemin de votre LV.

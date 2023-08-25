@@ -92,7 +92,7 @@ sudo systemctl restart systemd-resolved.service
 
 Après avoir suivi ces étapes, systemd utilisera les serveurs DNS que vous avez configurés pour résoudre les noms de domaine.
 
-## Configurer une IP fixe sous debian 11
+## Configurer une IP fixe sous debian 11/12
 Pour configurer une adresse IP fixe sous Debian 11, vous devez modifier le fichier de configuration réseau. Voici les étapes à suivre :
 
 1- Ouvrez un terminal sur votre système Debian 11.
@@ -116,22 +116,36 @@ Vous devez modifier cette section pour spécifier l'adresse IP fixe. Remplacez `
 ```makefile
 auto eth0
 iface eth0 inet static
-address 192.168.1.100
-netmask 255.255.255.0
-gateway 192.168.1.1
+    address 192.168.1.100
+    netmask 255.255.255.0
+    gateway 192.168.1.1
 ```
 
 Dans cet exemple, l'adresse IP `192.168.1.100`, le masque de sous-réseau `255.255.255.0` et la passerelle par défaut `192.168.1.1` sont utilisés. Assurez-vous d'adapter ces valeurs à votre réseau.
 
-5- Vous pouvez également spécifier des adresses IP pour les serveurs DNS en ajoutant les lignes suivantes :
+5- Vous pouvez également spécifier des adresses IP pour les serveurs DNS en ajoutant les lignes suivantes si le paquet resolvconf est installé sur votre système :
+
+Pour vérifier si le paquet resolvconf est installé sur votre système
+```bash
+sudo dpkg -l resolvconf
+```
+
+Si oui, ajouter les lignes suivantes au fichier `interfaces`:
 ```makefile
 dns-nameservers adresse_IP_DNS1 adresse_IP_DNS2
 ```
-
 Par exemple, pour utiliser les serveurs DNS de Google, vous pouvez ajouter :
 ```makefile
 dns-nameservers 8.8.8.8 8.8.4.4
 ```
+
+Si le paquet resolvconf n'est pas installé sur votre système, ajouter les lignes suivantes au fichier `\etc\resolv.conf`:
+
+```makefile
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
 
 6- Enregistrez les modifications et fermez l'éditeur de texte. Dans Nano, vous pouvez appuyer sur `Ctrl + O` pour enregistrer le fichier, puis `Ctrl + X` pour le fermer.
 
