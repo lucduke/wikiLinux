@@ -32,13 +32,12 @@ On sauvegarde le fichier de configuration par defaut
 
 ```bash
 sudo mv /etc/exports /etc/exports.bak
-sudo touch /etc/exports
 ```
 
-On saisit le contenu suivant dans le nouveau fichier
+On paramètre  le contenu suivant dans le nouveau fichier
 
-```txt 
-/srv/nfs/proxmox 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)
+```bash
+sudo touch /etc/exports | echo '/srv/nfs/proxmox 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)' | tee -a /etc/exports
 ```
 
 <u>Commentaires</u>

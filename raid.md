@@ -18,13 +18,13 @@ Lors de l'installation de mdadm, vous pouvez être invité à sélectionner "Oui
 
 On active ensuite le service mdmonitor s'il n'est pas actif
 ```bash
-systemctl status mdmonitor
-systemctl start mdmonitor
+sudo systemctl status mdmonitor
+sudo systemctl start mdmonitor
 ```
 
 On va ensuite créer les partitions sur les 2 disques sdX et sdY séléctionnés pour le stockage RAID (remplacez /dev/sdX et /dev/sdY par les identifiants corrects de vos disques)
 ```bash
-fdisk /dev/sdX
+sudo fdisk /dev/sdX
 ```
 
 On entre ensuite les commandes suivantes :
@@ -50,19 +50,19 @@ sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdX1 /dev
 Vérifiez l'avancement de la synchronisation en utilisant les commandes suivantes :
 
 ```bash
-cat /proc/mdstat
-mdadm -D /dev/md0
+sudo cat /proc/mdstat
+sudo mdadm -D /dev/md0
 ```
 
 On renseigne ensuite dans la configuration de mdadm la correspondance entre le périphérique md0 et son UUID
 
 ```bash
-mdadm -D --detail --scan | tee -a /etc/mdadm/mdadm.conf
+sudo mdadm -D --detail --scan | tee -a /etc/mdadm/mdadm.conf
 ```
 
 On enregistre pour persister ce nouveau device au boot
 ```bash
-update-initramfs -u
+sudo update-initramfs -u
 ```
 
 Une fois la synchronisation terminée, vous pouvez créer un système de fichiers sur le RAID. Par exemple, pour créer un système de fichiers ext4 :
@@ -76,22 +76,20 @@ sudo mkfs.ext4 -m 1 /dev/md0
 Créez un point de montage pour le RAID 1 :
 
 ```bash
-sudo mkdir -p /data/raid-1
+sudo mkdir -p /srv/raid
 ```
 
 Montez le RAID sur ce point de montage :
 ```bash
-sudo mount /dev/md0 /data/raid-1
+sudo mount /dev/md0 /srv/raid
 ```
 
 ## Étape 5 : Configuration du montage automatique
 
 Executer la ligne suivante pour monter automatiquement le RAID au démarrage (remplacez les options par celles qui vous conviennent, par exemple, defaults pour les options par défaut) :
 ```bash
-echo '/dev/md0 /data/raid-1 ext4 defaults,nofail 0 0' | tee -a \etc\fstab
+sudo echo '/dev/md0 /srv/raid ext4 defaults,nofail 0 0' | tee -a \etc\fstab
 ```
-
-Enregistrez et quittez l'éditeur de texte.
 
 ## Étape 6 : Redémarrage et vérification
 
@@ -107,13 +105,13 @@ df -h
 
 ## Étape 7 (optionnelle) : Gestion des droits
 
-On confie la propriété du dossier `data` et des sous-dossiers à un groupe éponyme
+On confie la propriété du dossier `raid` et des sous-dossiers à un groupe éponyme. J'associe ensuite ce groupe à mon utilisateur courant
 
 ```bash
-addgroup data
-adduser christophe data
-chown -R root:data /data
-chmod -R 775 /data
+sudo addgroup raid
+sudo chown -R root:raid /srv/raid
+sudo chmod -R 775 /srv/raid
+sudo usermod -G raid christophe
 ```
 
 Voilà, vous avez configuré avec succès un RAID 1 sous Debian 12 ! Assurez-vous de toujours garder une copie de sauvegarde de vos données importantes et de surveiller régulièrement l'état du RAID avec les commandes `cat /proc/mdstat` ou `mdadm -D /dev/md0`.
