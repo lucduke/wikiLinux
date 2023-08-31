@@ -57,7 +57,7 @@ mdadm -D /dev/md0
 On renseigne ensuite dans la configuration de mdadm la correspondance entre le périphérique md0 et son UUID
 
 ```bash
-mdadm -D --scan >> /etc/mdadm/mdadm.conf
+mdadm -D --detail --scan | tee -a /etc/mdadm/mdadm.conf
 ```
 
 On enregistre pour persister ce nouveau device au boot
@@ -76,24 +76,19 @@ sudo mkfs.ext4 -m 1 /dev/md0
 Créez un point de montage pour le RAID 1 :
 
 ```bash
-sudo mkdir /mnt/raid-1
+sudo mkdir -p /data/raid-1
 ```
 
 Montez le RAID sur ce point de montage :
 ```bash
-sudo mount /dev/md0 /mnt/raid-1
+sudo mount /dev/md0 /data/raid-1
 ```
 
 ## Étape 5 : Configuration du montage automatique
 
-Ouvrez le fichier /etc/fstab en utilisant un éditeur de texte comme nano ou vi :
+Executer la ligne suivante pour monter automatiquement le RAID au démarrage (remplacez les options par celles qui vous conviennent, par exemple, defaults pour les options par défaut) :
 ```bash
-sudo nano /etc/fstab
-```
-
-Ajoutez la ligne suivante pour monter automatiquement le RAID au démarrage (remplacez les options par celles qui vous conviennent, par exemple, defaults pour les options par défaut) :
-```bash
-/dev/md0    /mnt/raid-1    ext4    defaults,nofail    0    0
+echo '/dev/md0 /data/raid-1 ext4 defaults,nofail 0 0' | tee -a \etc\fstab
 ```
 
 Enregistrez et quittez l'éditeur de texte.
@@ -108,6 +103,17 @@ sudo reboot
 Après le redémarrage, vérifiez que le RAID est monté avec la commande :
 ```bash
 df -h
+```
+
+## Étape 7 (optionnelle) : Gestion des droits
+
+On confie la propriété du dossier `data` et des sous-dossiers à un groupe éponyme
+
+```bash
+addgroup data
+adduser christophe data
+chown -R root:data /data
+chmod -R 775 /data
 ```
 
 Voilà, vous avez configuré avec succès un RAID 1 sous Debian 12 ! Assurez-vous de toujours garder une copie de sauvegarde de vos données importantes et de surveiller régulièrement l'état du RAID avec les commandes `cat /proc/mdstat` ou `mdadm -D /dev/md0`.
