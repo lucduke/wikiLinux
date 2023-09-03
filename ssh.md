@@ -75,7 +75,7 @@ sudo systemctl restart sshd
 
 ## Fichier de configuration du serveur SSH
 
-Le fichier est enregistrer ici : /etc/ssh/ssh_config
+Le fichier est enregistrer ici : /etc/ssh/sshd_config
 
 ```txt
 # Pour empêcher la connexion du user root au serveur SSH (attention a bien avoir créer un autre utilisateur ayant accès au serveur ssh)
