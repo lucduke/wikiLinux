@@ -57,7 +57,7 @@ sudo mdadm -D /dev/md0
 On renseigne ensuite dans la configuration de mdadm la correspondance entre le périphérique md0 et son UUID
 
 ```bash
-sudo mdadm -D --detail --scan | tee -a /etc/mdadm/mdadm.conf
+sudo mdadm -D --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 ```
 
 On enregistre pour persister ce nouveau device au boot
@@ -88,7 +88,7 @@ sudo mount /dev/md0 /srv/raid
 
 Executer la ligne suivante pour monter automatiquement le RAID au démarrage (remplacez les options par celles qui vous conviennent, par exemple, defaults pour les options par défaut) :
 ```bash
-sudo echo '/dev/md0 /srv/raid ext4 defaults,nofail 0 0' | tee -a \etc\fstab
+sudo echo '/dev/md0 /srv/raid ext4 defaults,nofail 0 0' | sudo tee -a \etc\fstab
 ```
 
 ## Étape 6 : Redémarrage et vérification
@@ -111,7 +111,9 @@ On confie la propriété du dossier `raid` et des sous-dossiers à un groupe ép
 sudo addgroup raid
 sudo chown -R root:raid /srv/raid
 sudo chmod -R 775 /srv/raid
-sudo usermod -G raid christophe
+sudo usermod -aG raid christophe
 ```
+
+Il faut ensuite se reconnecter pour que la modification prenne effet
 
 Voilà, vous avez configuré avec succès un RAID 1 sous Debian 12 ! Assurez-vous de toujours garder une copie de sauvegarde de vos données importantes et de surveiller régulièrement l'état du RAID avec les commandes `cat /proc/mdstat` ou `mdadm -D /dev/md0`.

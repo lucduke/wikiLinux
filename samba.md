@@ -33,7 +33,7 @@ Ajoutez des sections pour chaque partage que vous souhaitez créer. Par exemple,
 
 ```bash
 [PartageDocuments]
-  path = \chemin\vers\le\dossier
+  path = /chemin/vers/le/dossier
   comment = Partage de documents
   browseable = Yes
   writeable = Yes
@@ -63,7 +63,7 @@ Après avoir configuré Samba, redémarrez les services Samba et NetBIOS pour ap
 
 ```bash
 sudo systemctl restart smbd
-sudo systemctl restart nmbd
+  sudo systemctl restart nmbd
 ```
 
 ## Étape 5 : Autorisations de pare-feu
