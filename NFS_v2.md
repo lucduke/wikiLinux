@@ -4,7 +4,7 @@
 ## Création des répertoires à partager
 
 ```bash
-sudo mkdir -p /srv/nfs/proxmox 
+sudo mkdir -p /srv/raid/nfs/proxmox 
 ```
 
 ## Installation du serveur NFS
@@ -16,13 +16,13 @@ sudo apt install nfs-kernel-server -y
 On vérifie que le serveur est actif
 
 ```bash
-systemctl status nfs-kernel-server
+sudo systemctl status nfs-kernel-server
 ```
 
 Si non :
 
 ```bash
-systemctl enable --now nfs-server.service
+sudo systemctl enable --now nfs-server.service
 ```
 
 
@@ -37,7 +37,7 @@ sudo mv /etc/exports /etc/exports.bak
 On paramètre  le contenu suivant dans le nouveau fichier
 
 ```bash
-sudo touch /etc/exports | echo '/srv/nfs/proxmox 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)' | tee -a /etc/exports
+sudo touch /etc/exports | echo '/srv/raid/nfs/proxmox 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)' | sudo tee -a /etc/exports
 ```
 
 <u>Commentaires</u>
