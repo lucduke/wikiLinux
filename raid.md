@@ -88,7 +88,7 @@ sudo mount /dev/md0 /srv/raid
 
 Executer la ligne suivante pour monter automatiquement le RAID au démarrage (remplacez les options par celles qui vous conviennent, par exemple, defaults pour les options par défaut) :
 ```bash
-sudo echo '/dev/md0 /srv/raid ext4 defaults,nofail 0 0' | sudo tee -a \etc\fstab
+echo '/dev/md0 /srv/raid ext4 defaults,nofail 0 0' | sudo tee -a /etc/fstab
 ```
 
 ## Étape 6 : Redémarrage et vérification
