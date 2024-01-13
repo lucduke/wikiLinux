@@ -18,4 +18,3 @@ sudo fwupdmgr get-devices
 # Installation des mises à jour
 sudo fwupdmgr update
 ```
-
