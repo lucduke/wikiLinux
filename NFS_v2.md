@@ -25,7 +25,6 @@ Si non :
 sudo systemctl enable --now nfs-server.service
 ```
 
-
 ## Configuration du serveur NFS
 
 On sauvegarde le fichier de configuration par defaut
@@ -40,7 +39,8 @@ On paramètre  le contenu suivant dans le nouveau fichier
 sudo touch /etc/exports | echo '/srv/raid/nfs/proxmox 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)' | sudo tee -a /etc/exports
 ```
 
-<u>Commentaires</u>
+**_Commentaires_**
+
 - no_root_squash : Par défaut, le serveur NFS attribue les opérations effectuées par l'utilisateur root sur le client à un utilisateur anonyme. Cette option désactive ce comportement et permet à l'utilisateur root sur le client d'agir comme root sur le serveur
 
 On redémarre le serveur

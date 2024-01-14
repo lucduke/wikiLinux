@@ -1,7 +1,5 @@
 # Les informations systèmes
 
-
-
 ## Vision synthétique
 
 ```bash
@@ -24,8 +22,6 @@ lsusb
 lsscsi
 ```
 
-
-
 ## La date
 
 ```bash
@@ -35,16 +31,12 @@ date
 uptime
 ```
 
-
-
 ## Les utilisateurs connectés
 
 ```bash
 # Pour afficher tous les utilisateurs connectés
 w
 ```
-
-
 
 ## Les informations CPU
 
@@ -55,8 +47,6 @@ nproc
 lscpu
 more /proc/cpuinfo
 ```
-
-
 
 ## Les informations mémoire
 
@@ -69,11 +59,9 @@ free -m
 swapoff -a && swapon -a
 ```
 
-
-
 ## Les disques
 
-### Récupérer des informations 
+### Récupérer des informations
 
 ```shell
 # Lister les disques
@@ -122,6 +110,7 @@ mount /dev/sdb1 /mnt/disk1
 ```
 
 ### FSTAB
+
 #### Structure
 
 ```text
@@ -129,6 +118,7 @@ mount /dev/sdb1 /mnt/disk1
 ```
 
 #### Options
+
 ```text
 defaults : rw,suid,dev,exec,auto,nouser,async
 rw : read-write
@@ -154,8 +144,6 @@ cat /etc/fstab
 # Pour voir tous les filesystem montés
 cat /etc/mtab
 ```
-
-
 
 ### Gérer les partitions sur un disque (ex: sdb)
 
@@ -213,4 +201,3 @@ sudo dd if=/dev/zero of=/dev/sda status=progress
 # Restaurer un disque depuis un fichier image
 sudo dd if=mybackup.img of=/dev/sda status=progress
 ```
-
