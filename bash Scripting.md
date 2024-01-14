@@ -178,6 +178,20 @@ else
 fi
 ```
 
+## Divers
+
+Pour activer la sortie du script en cas d'erreur
+
+```bash
+set -o errexit
+```
+
+Pour activer la sortie du script en cas d'utilisation d'une variable non définie
+
+```bash
+set -o nounset
+```
+
 ## Conclusion
 
 Dans ce tutoriel, nous avons vu comment gérer les codes de sortie dans les scripts bash. Nous avons appris comment afficher le code de sortie d'une commande, comment modifier le code de sortie d'un script en utilisant la commande `exit`, et comment utiliser les codes de sortie dans les scripts pour prendre des décisions en fonction du résultat d'une commande. Les codes de sortie sont un élément important de la gestion des erreurs dans les scripts bash et peuvent aider à rendre votre code plus robuste et fiable.
