@@ -43,7 +43,7 @@ sudo apt install -y ideviceinstaller libimobiledevice-utils ifuse
 3- On appaire le PC et l'iPhone
 
 ```bash
-idevicepair
+idevicepair pair
 ```
 
 4- On monte l'iphone sur un point de montage
@@ -57,4 +57,10 @@ sudo ifuse /media/iphone
 
 ```bash
 cp -vr /media/iphone/DCIM/* ~/Images
+```
+
+6- On démonte l'iPhone du point de montage
+
+```bash
+sudo fusermount -u /media/iphone/
 ```
