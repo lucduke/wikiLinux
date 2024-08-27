@@ -48,3 +48,9 @@ On redémarre le serveur
 ```bash
 sudo systemctl restart nfs-kernel-server
 ```
+
+ou option alternative, on exporte le système de fichier NFS vers les clients
+
+```bash
+sudo exportfs -av
+```

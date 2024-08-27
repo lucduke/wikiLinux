@@ -146,3 +146,17 @@ sudo systemctl restart autofs
 sudo systemctl status autofs
 ```
 
+## Montage automatique via FSTAB
+
+On édite le 1er fichier de configuration "fstab"
+
+
+```bash
+sudo nano /etc/fstab
+```
+
+On ajoute les lignes suivantes dans le fichier
+
+```bash
+echo '192.168.1.109:/srv/nfs/documents /mnt/nfs/documents nfs defaults,_netdev,nofail 0 0' | sudo tee -a /etc/fstab
+```
