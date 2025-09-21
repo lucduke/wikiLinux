@@ -32,15 +32,15 @@ Remplacez `NOM_DU_GROUPE_DE_TRAVAIL` par le nom de votre groupe de travail Windo
 Ajoutez des sections pour chaque partage que vous souhaitez créer. Par exemple, pour créer un partage appelé "PartageDocuments", ajoutez :
 
 ```bash
-[PartageDocuments]
-  path = /chemin/vers/le/dossier
-  comment = Partage de documents
-  browseable = Yes
-  writeable = Yes
-  only guest = no
-  create mask = 0775
-  directory mask = 0775 
-  public = no
+  [PartageDocuments]
+    path = /chemin/vers/le/dossier
+    comment = Partage de documents
+    browseable = Yes
+    writeable = Yes
+    only guest = no
+    create mask = 0775
+    directory mask = 0775 
+    public = no
 ```
 
 Remplacez `\chemin\vers\le\dossier` par le chemin absolu du dossier que vous souhaitez partager.
@@ -63,7 +63,7 @@ Après avoir configuré Samba, redémarrez les services Samba et NetBIOS pour ap
 
 ```bash
 sudo systemctl restart smbd
-  sudo systemctl restart nmbd
+sudo systemctl restart nmbd
 ```
 
 ## Étape 5 : Autorisations de pare-feu
