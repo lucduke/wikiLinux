@@ -6,10 +6,11 @@
 tar -cvf archive1.tar <nomFichier1> <nomFichier2>
 
 # Avec compression GZIP
-tar -czvf archive1.tar.gz <nomFichier1> <nomFichier2>
+tar -czvpf archive1.tar.gz <nomFichier1> <nomFichier2>
 #	c => créer une nouvelle archive
 #	z => permet d’activer la compression « gzip » pour un taux de compression plus important
 #	v => mode verbeux, permet d’afficher dans le détail les fichiers compressés
+#   p => préserve les permissions des fichiers
 #	f => indication de la donnée à compresser
 
 # Avec compression BZIP2

@@ -1,10 +1,6 @@
 # La compression / décompression d'archive ZIP / RAR
 
-
-
 ## Les archives ZIP
-
-
 
 ```bash
 # Zipper un fichier ou un repertoire
