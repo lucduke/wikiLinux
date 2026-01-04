@@ -96,6 +96,18 @@ sudo apt-get install podman
     podman rmi <ID_image>
     ```
 
+- **Supprimer toutes les images inutilisées**
+
+    ```bash
+    podman image prune -a
+    ```
+
+- **Mettre à jour une image**
+
+    ```bash
+    podman auto-update
+    ```
+
 ## Gestion des Volumes
 
 - **Lister les volumes**
