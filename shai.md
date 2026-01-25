@@ -24,7 +24,7 @@ shai on
 shai off
 ```
 
-## Desactiver le mot de passe lorsque l'on execute sudo
+## Désactiver le mot de passe pour sudo
 
 Executer la commande suivante :
 
@@ -32,7 +32,11 @@ Executer la commande suivante :
 sudo visudo
 ```
 
-Puis dé-commenter la ligne suivante '# %wheel        ALL=(ALL)       NOPASSWD: ALL'
+Puis dé-commenter la ligne suivante :
+
+```t
+# %wheel        ALL=(ALL)       NOPASSWD: ALL
+```
 
 Pour savoir si son utilisateur est dans le groupe wheel
 
